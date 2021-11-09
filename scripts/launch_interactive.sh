@@ -1,9 +1,6 @@
-srun --mem=100g --cpus-per-task=6 --gres=gpu:1 --time=6:00:00 --pty /bin/bash -c '
-  module purge
-  module load anaconda3/2020.07
-  module load cuda/11.1.74
-  source /share/apps/anaconda3/2020.07/etc/profile.d/conda.sh
-  conda activate /scratch/pp1994/projects/conda_envs/lang_env
-  export PATH=/scratch/pp1994/projects/conda_envs/lang_env/bin:$PATH
-  python
-'
+srun \
+--mem=50g \
+--cpus-per-task=8 \
+--time=2:00:00 \
+--pty /bin/bash -c \
+'singularity exec --nv --overlay /scratch/pp1994/singularity_images/overlay-10GB-400K.ext3:ro /scratch/work/public/singularity/cuda11.1-cudnn8-devel-ubuntu18.04.sif /bin/bash -c "source /ext3/env.sh; python"'

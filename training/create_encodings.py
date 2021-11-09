@@ -29,6 +29,9 @@ def create_encodings(train_sentences, train_labels, val_sentences, val_labels,
     elif model == "bert":
         tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased",
                                                   use_fast=True)
+    elif model == "charbert":
+        tokenizer = AutoTokenizer.from_pretrained(
+            "trained_models/charbert-bert-wiki", use_fast=True)
     else:
         raise NotImplementedError("model not implemented")
 

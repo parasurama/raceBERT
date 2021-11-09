@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: racebert
+Version: 1.0.0
+Summary: Race and Ethnicity Prediction from names
+Home-page: https://github.com/parasurama/raceBERT
+Author: Prasanna Parasurama
+Author-email: pparasurama@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+
+# RaceBERT -- A transformer based model to predict race and ethnicty from names
+
+
+# Installation
+Using a virtual environment is highly recommended!
+```
+pip install racebert
+```
+
+# Usage
+
+```python
+from racebert import RaceBERT
+
+model = RaceBERT()
+
+# Te predict race
+model.predict_race("Barack Obama")
+```
+
+```
+>>> {"label": "nh_black", "score": 0.5196923613548279}
+```
+
+```python
+# Predict ethnicity
+model.predict_ethnicty("Arjun Gupta")
+```
+```
+>>> {"label": "Asian,IndianSubContinent", "score": 0.9612812399864197}
+```
+
+## GPU
+
+If you have a GPU, you can speed up the computation by specifying the CUDA device when you instantiate the model. 
+
+```python
+from racebert import RaceBERT
+
+model = RaceBERT(device=0)
+
+# predict race in batch
+model.predict_race(["Barack Obama", "George Bush"])
+```
+```
+>>>
+[
+        {"label": "nh_black", "score": 0.5196923613548279},
+        {"label": "nh_white", "score": 0.8365859389305115}
+]
+```
+
+```python
+# predict ethnicity in batch
+model.predict_ethnicity(["Barack Obama", "George Bush"])
+```
+# HuggingFace 
+
+Alternatively, you can work with the transformers models hosted on the huggingface hub directly.
+
+- Race Model: https://huggingface.co/pparasurama/raceBERT-race
+- Ethnicity Model: https://huggingface.co/pparasurama/raceBERT-ethnicity
+
+Please refer to the [transformers](https://huggingface.co/transformers/) documentation. 
+
