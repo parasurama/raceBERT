@@ -7,7 +7,7 @@ with open("README.md") as f:
 # This call to setup() does all the work
 setup(
     name="racebert",
-    version="1.0.0",
+    version="1.1.0",
     description="Race and Ethnicity Prediction from names",
     long_description=README,
     long_description_content_type="text/markdown",

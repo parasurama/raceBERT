@@ -1,8 +1,10 @@
 .vscode/
+.idea/
 __pycache__/
 data/
 trained_models/
 raceBERT-ethnicity
 raceBERT-race
+raceBERT
 
 

@@ -6,7 +6,7 @@ racebert = RaceBERT()
 
 
 def test_process_name():
-    assert racebert.process_name("John Doe") == "john_doe"
+    assert racebert.normalize_name("John Doe") == "john_doe"
 
 
 def test_predict_race():

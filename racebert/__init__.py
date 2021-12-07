@@ -1,9 +1,9 @@
 from __future__ import annotations
-from transformers import BertForSequenceClassification, AutoTokenizer
+from transformers import BertForSequenceClassification, AutoTokenizer, RobertaForSequenceClassification
 from transformers.pipelines import TextClassificationPipeline
 from typing import List, Dict
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 class RaceBERT:
     def __init__(self, device=-1) -> None:
@@ -12,15 +12,16 @@ class RaceBERT:
         Args:
             device (int, optional): CUDA device to use (-1 for cpu). Defaults to -1.
         """
-        self.tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased", use_fast=True)
         
-        self.race_model = BertForSequenceClassification.from_pretrained("pparasurama/raceBERT-race")
-        self.race_pipeline = TextClassificationPipeline(model=self.race_model, tokenizer=self.tokenizer, device=device)
+        self.race_model = RobertaForSequenceClassification.from_pretrained("pparasurama/raceBERT")
+        self.race_tokenizer = AutoTokenizer.from_pretrained("pparasurama/raceBERT", use_fast=True)
+        self.race_pipeline = TextClassificationPipeline(model=self.race_model, tokenizer=self.race_tokenizer, device=device)
 
         self.ethnicity_model = BertForSequenceClassification.from_pretrained("pparasurama/raceBERT-ethnicity")
-        self.ethnicity_pipeline = TextClassificationPipeline(model=self.ethnicity_model, tokenizer=self.tokenizer, device=device)
+        self.ethnicity_tokenizer = AutoTokenizer.from_pretrained("pparasurama/raceBERT-ethnicity")
+        self.ethnicity_pipeline = TextClassificationPipeline(model=self.ethnicity_model, tokenizer=self.ethnicity_tokenizer, device=device)
 
-    def process_name(self, name: str) -> str:
+    def normalize_name(self, name: str, strategy: str) -> str:
         """
         utility function to process and normalize names
 
@@ -30,7 +31,11 @@ class RaceBERT:
         Returns:
             str: normalized named (ex. "John Doe" becomes "john_doe")
         """
-        return "_".join(name.split(" ")).lower()
+        
+        if strategy == "first_last":
+            return "_".join(name.split(" ")).lower()
+        elif strategy == "first LAST":
+            return " ".join(name.lower().split()[:-1] + [name.split()[-1].upper()])
     
     def predict_race(self, names: str | List[str]) -> List[Dict]:
         """Predict race give a name or list of names
@@ -43,9 +48,9 @@ class RaceBERT:
             List[Dict]: predicted probabilities of race (nh_black, nh_white, hispanic, api, aian)
         """
         if type(names) == str:
-            names = self.process_name(names)
+            names = self.normalize_name(names, strategy="first LAST")
         else:
-            names = [self.process_name(x) for x in names]
+            names = [self.normalize_name(x, strategy="first LAST") for x in names]
                     
         results = self.race_pipeline(names)
         return results
@@ -60,9 +65,9 @@ class RaceBERT:
             List[Dict]: predicted probabilities of ethnicity
         """
         if type(names) == str:
-            names = self.process_name(names)
+            names = self.normalize_name(names, strategy="first_last")
         else:
-            names = [self.process_name(x) for x in names]
+            names = [self.normalize_name(x, strategy="first_last") for x in names]
                     
         results = self.ethnicity_pipeline(names)
         return results

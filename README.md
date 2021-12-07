@@ -1,6 +1,5 @@
 # RaceBERT -- A transformer based model to predict race and ethnicty from names
 
-
 # Installation
 
 ```
@@ -9,20 +8,34 @@ pip install racebert
 Using a virtual environment is highly recommended!
 You may need to install pytorch as instructed here: https://pytorch.org/get-started/locally/
 
+# Paper
+Todo
+
 # Usage
+raceBERT predicts race (U.S census race) and ethnicity from names. 
 
 ```python
 from racebert import RaceBERT
 
 model = RaceBERT()
 
-# Te predict race
+# To predict race
 model.predict_race("Barack Obama")
 ```
 
 ```
 >>> {"label": "nh_black", "score": 0.5196923613548279}
 ```
+
+The race categories are:
+| Race                             | Label    |
+|----------------------------------|----------|
+| Non-hispanic White               | nh_white |
+| Hispanic                         | hispanic |
+| Non-hispanic Black               | nh_black |
+| Asian & Pacific Islander         | api      |
+| American Indian & Alaskan Native | aian     |
+
 
 ```python
 # Predict ethnicity
@@ -31,6 +44,23 @@ model.predict_ethnicty("Arjun Gupta")
 ```
 >>> {"label": "Asian,IndianSubContinent", "score": 0.9612812399864197}
 ```
+The ethnicity categories are:
+
+| Ethnicity                             |
+|---------------------------------------|
+| GreaterEuropean,British               |
+| GreaterEuropean,WestEuropean,French   |
+| GreaterEuropean,WestEuropean,Italian  |
+| GreaterEuropean,WestEuropean,Hispanic |
+| GreaterEuropean,Jewish                |
+| GreaterEuropean,EastEuropean          |
+| Asian,IndianSubContinent              |
+| Asian,GreaterEastAsian,Japanese       |
+| GreaterAfrican,Muslim                 |
+| Asian,GreaterEastAsian,EastAsian      |
+| GreaterEuropean,WestEuropean,Nordic   |
+| GreaterEuropean,WestEuropean,Germanic |
+| GreaterAfrican,Africans               |
 
 ## GPU
 
@@ -60,7 +90,7 @@ model.predict_ethnicity(["Barack Obama", "George Bush"])
 
 Alternatively, you can work with the transformers models hosted on the huggingface hub directly.
 
-- Race Model: https://huggingface.co/pparasurama/raceBERT-race
+- Race Model: https://huggingface.co/pparasurama/raceBERT
 - Ethnicity Model: https://huggingface.co/pparasurama/raceBERT-ethnicity
 
 Please refer to the [transformers](https://huggingface.co/transformers/) documentation. 
