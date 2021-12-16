@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Data}{}% 2
+\BOOKMARK [1][-]{section.3}{Models}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Fine-tuning a pre-trained BERT model}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Training a model from scratch}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Code, Configs, and Resources}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Conclusion \046 Limitations}{}% 7
+\BOOKMARK [1][-]{appendix.A}{Wikipedia Ethnicity Dataset}{}% 8

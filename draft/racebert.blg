@@ -1,0 +1,17 @@
+[0] Config.pm:312> INFO - This is Biber 2.15
+[0] Config.pm:315> INFO - Logfile is 'racebert.blg'
+[103] biber:330> INFO - === Thu Dec  9, 2021, 00:07:52
+[129] Biber.pm:415> INFO - Reading 'racebert.bcf'
+[270] Biber.pm:952> INFO - Found 13 citekeys in bib section 0
+[298] Biber.pm:4334> INFO - Processing section 0
+[318] Biber.pm:4523> INFO - Looking for bibtex format file 'references.bib' for section 0
+[405] bibtex.pm:1682> INFO - LaTeX decoding ...
+[1429] bibtex.pm:1494> INFO - Found BibTeX data source 'references.bib'
+[1434] Utils.pm:395> WARN - Citekey alias 'barocas_big_2016-1' is also a real entry key, skipping ...
+[1659] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1660] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1660] Biber.pm:4162> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1660] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-US'
+[1675] bbl.pm:651> INFO - Writing 'racebert.bbl' with encoding 'UTF-8'
+[1692] bbl.pm:754> INFO - Output to racebert.bbl
+[1692] Biber.pm:128> INFO - WARNINGS: 1

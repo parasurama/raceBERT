@@ -2352,14 +2352,24 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">sood_predicting_2018</bcf:citekey>
-    <bcf:citekey order="2">sood_predicting_2018</bcf:citekey>
-    <bcf:citekey order="3">sood_predicting_2018</bcf:citekey>
-    <bcf:citekey order="4">vaswani_attention_2017</bcf:citekey>
-    <bcf:citekey order="4">devlin_bert_2019</bcf:citekey>
-    <bcf:citekey order="5">sun_how_2019</bcf:citekey>
-    <bcf:citekey order="6">ambekar_name-ethnicity_2009</bcf:citekey>
+    <bcf:citekey order="2">zhang_assessing_2018</bcf:citekey>
+    <bcf:citekey order="2">fiscella_use_2006</bcf:citekey>
+    <bcf:citekey order="3">bertrand_are_2004</bcf:citekey>
+    <bcf:citekey order="3">kang_whitened_2016</bcf:citekey>
+    <bcf:citekey order="4">parasurama_who_2020</bcf:citekey>
+    <bcf:citekey order="5">fiscella_use_2006</bcf:citekey>
+    <bcf:citekey order="5">imai_improving_2016</bcf:citekey>
+    <bcf:citekey order="5">ambekar_name-ethnicity_2009</bcf:citekey>
+    <bcf:citekey order="5">sood_predicting_2018</bcf:citekey>
+    <bcf:citekey order="5">xie_rethnicity_2021</bcf:citekey>
     <bcf:citekey order="6">sood_predicting_2018</bcf:citekey>
-    <bcf:citekey order="7">liu_roberta_2019</bcf:citekey>
+    <bcf:citekey order="7">sood_predicting_2018</bcf:citekey>
+    <bcf:citekey order="8">vaswani_attention_2017</bcf:citekey>
+    <bcf:citekey order="8">devlin_bert_2019</bcf:citekey>
+    <bcf:citekey order="9">sun_how_2019</bcf:citekey>
+    <bcf:citekey order="10">ambekar_name-ethnicity_2009</bcf:citekey>
+    <bcf:citekey order="10">sood_predicting_2018</bcf:citekey>
+    <bcf:citekey order="11">liu_roberta_2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
