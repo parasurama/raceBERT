@@ -9,7 +9,7 @@ Using a virtual environment is highly recommended!
 You may need to install pytorch as instructed here: https://pytorch.org/get-started/locally/
 
 # Paper
-Todo
+See Here: https://arxiv.org/abs/2112.03807
 
 # Usage
 raceBERT predicts race (U.S census race) and ethnicity from names. 
